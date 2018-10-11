@@ -1,1 +1,30 @@
-*{margin:0}li{list-style:none}
+body {
+  background: #ddd; }
+
+html {
+  font-size: 16; }
+
+.box {
+  width: 3.75rem;
+  height: 3.75rem;
+  background: #000;
+  -moz-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -o-transition: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-traansition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s; }
+
+.box2 {
+  width: 200px;
+  height: 200px;
+  background: yellowgreen;
+  -moz-transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+  -o-transition: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg); }

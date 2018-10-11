@@ -2,14 +2,14 @@ const gulp =require("gulp");
 const connect=require("gulp-connect");
 var concat=require("gulp-concat");
 var uglify = require("gulp-uglify");
-//babel 插件;
 var babel = require("gulp-babel");
-// css 插件;
 var cleanCss = require("gulp-clean-css");
-gulp.task("html",()=>{
-    return gulp.src("index.html")
-    .pipe(gulp.dest("dist/"))
-})
+var sass = require("gulp-sass-china");
+
+// gulp.task("html",()=>{
+//     return gulp.src("index.html")
+//     .pipe(gulp.dest("dist/"))
+// })
 gulp.task("html",()=>{
     return gulp.src("*.html")
    .pipe(gulp.dest("dist/"))
@@ -21,28 +21,32 @@ gulp.task("script",()=>{
     .pipe(gulp.dest("dist/script"))
 
 })
-
 gulp.task("styles",()=>{
     return gulp.src(["styles/*.css"])
  .pipe(gulp.dest("dist/css"))
  })
-gulp.task("default",["html","script","styles"])
+// gulp.task("default",["html","script","styles"])
 gulp.task("es6",()=>{
     return gulp.src("script/es2015/es6.js")
     .pipe(babel({
         presets:['@babel/env']
     }))
-    .pipe(gulp.dest(dist/script))
+    .pipe(gulp.dest("dist/script"))
 })
 gulp.task("css", ()=>{
     return gulp.src(["styles/*.css"])
            .pipe(cleanCss())
            .pipe(gulp.dest("dist/css"))
 })
+
+gulp.task("sass", () =>{
+    return gulp.src(["sass/*.scss"])
+           .pipe(sass().on("error",sass.logError))
+           .pipe(gulp.dest("dist/css"))
+})
 gulp.task("watch",()=>{
-   gulp.watch("index.html",["html"])
-//    gulp.watch("index.scss",["html"])
-//    gulp.watch("index.html",["html"])
+   gulp.watch("index.html",["html","sass"])
+   gulp.watch("sass/*.scss",["html","sass"])
 })
 gulp.task("connect",()=>{
     connect.server({

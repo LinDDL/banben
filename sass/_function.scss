@@ -1,0 +1,7 @@
+$rootSize:16;
+html{
+    font-size: $rootSize;
+}
+@function pxToRem($px){
+    @return ($px / $rootSize)*1rem;
+}

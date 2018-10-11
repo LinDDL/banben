@@ -1,0 +1,36 @@
+$color:#ddd;
+body{
+    background:$color;
+
+}
+// .box1{
+//     background: $color;
+// }
+// .box2{
+//     background: $color;
+// }
+// .box3{
+//     background: $color;
+// }
+// h2{
+//     color:#f15;
+// }
+// h4{
+//     color:#fff;
+// }
+@import "_mixin.scss";
+@import "_function.scss";
+.box{
+    width:pxToRem(60);
+    height:pxToRem(60);
+    background:#000;
+    @include transform(rotate(30deg));
+    @include transition;
+}
+.box2{
+    width:200px;
+    height:200px;
+    background: yellowgreen;
+    @include transform(rotate(60deg));
+
+}
